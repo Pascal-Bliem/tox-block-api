@@ -30,7 +30,7 @@ def api_make_predictions():
         input_json = request.get_json()
         _logger.debug(f"Inputs: {input_json}")
         
-        # Step 2: Validate the input using marshmallow schema
+        # Step 2: Validate the input
         input_data, errors = validate_multiple_inputs(input=input_json)
         if not errors is None:
             abort(400, f"Errors occurred when validating the input data: {errors}")
@@ -52,7 +52,7 @@ def api_make_single_prediction():
         input_json = request.get_json()
         _logger.debug(f"Inputs: {input_json}")
         
-        # Step 2: Validate the input using marshmallow schema
+        # Step 2: Validate the input
         input_data, errors = validate_single_input(input=input_json)
         if not errors is None:
             abort(400, f"Errors occurred when validating the input data: {errors}")
