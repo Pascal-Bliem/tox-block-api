@@ -1,0 +1,8 @@
+# api
+flask>=1.1.1,<1.2.0
+
+# ToxBlock
+tox-block==0.1.2
+
+# environment variables
+python-dotenv==0.13.0
