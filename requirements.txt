@@ -6,3 +6,6 @@ tox-block==0.1.2
 
 # environment variables
 python-dotenv==0.13.0
+
+# Deployment
+gunicorn==20.0.4

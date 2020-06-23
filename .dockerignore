@@ -1,0 +1,10 @@
+*.ipynb
+*/env*
+*/venv*
+tests/
+logs/
+.vscode/
+*.env
+*.log
+.git
+.gitignore
