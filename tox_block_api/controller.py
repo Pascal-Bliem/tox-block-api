@@ -1,4 +1,5 @@
 from flask import Blueprint, request, jsonify, abort
+from flask_cors import CORS, cross_origin
 from tox_block.prediction import make_single_prediction, make_predictions
 from tox_block import __version__ as _version
 import os
@@ -10,20 +11,25 @@ from tox_block_api import __version__ as api_version
 _logger = get_logger(logger_name=__name__)
 
 tox_block_app = Blueprint("tox_block_app", __name__)
+cors = CORS(tox_block_app)
+tox_block_app.config["CORS_HEADERS"] = "Content-Type"
 
 @tox_block_app.route("/health", methods=["GET"])
+@cross_origin()
 def health():
     if request.method == "GET":
         _logger.info("Health status OK :)")
         return "ok"
 
 @tox_block_app.route("/version", methods=["GET"])
+@cross_origin()
 def version():
     if request.method == "GET":
         return jsonify({"model_version": _version,
                         "api_version": api_version})
 
 @tox_block_app.route("/v1/make_predictions", methods=["POST"])
+@cross_origin()
 def api_make_predictions():
     if request.method == "POST":
         # Step 1: Extract POST data from request body as JSON
@@ -46,6 +52,7 @@ def api_make_predictions():
                         })
         
 @tox_block_app.route("/v1/make_single_prediction", methods=["POST"])
+@cross_origin()
 def api_make_single_prediction():
     if request.method == "POST":
         # Step 1: Extract POST data from request body as JSON

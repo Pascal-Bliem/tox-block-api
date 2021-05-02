@@ -1,5 +1,6 @@
 # api
 flask>=1.1.1,<1.2.0
+flask-cors==3.0.10
 
 # ToxBlock
 tox-block==0.1.2
