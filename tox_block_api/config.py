@@ -48,6 +48,7 @@ class Config:
     CSRF_ENABLED = True
     SECRET_KEY = os.getenv("FLASK_CONFIG_SECRET_KEY")
     SERVER_PORT = 5000
+    CORS_HEADERS = "Content-Type"
 
 
 class ProductionConfig(Config):

@@ -12,7 +12,6 @@ _logger = get_logger(logger_name=__name__)
 
 tox_block_app = Blueprint("tox_block_app", __name__)
 cors = CORS(tox_block_app)
-tox_block_app.config["CORS_HEADERS"] = "Content-Type"
 
 @tox_block_app.route("/health", methods=["GET"])
 @cross_origin()
